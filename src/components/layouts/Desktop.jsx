@@ -93,7 +93,7 @@ export default function Desktop() {
 
             <DesktopIcons icons={apps} />
 
-            <div className=' absolute right-5 top-15 w-1/4 h-[calc(100%-9rem)]'>
+            <div className=' absolute right-5 top-17 w-1/4 h-[calc(100%-9rem)]'>
             <ClockWidget time={obj}/>
             </div>
 
