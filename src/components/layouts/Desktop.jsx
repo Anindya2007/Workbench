@@ -8,6 +8,7 @@ import Wallpaper from "./Wallpaper.jsx";
 
 import TopBar from "./TopBar.jsx";
 import DesktopIcons from "../window/DesktopIcons.jsx";
+import ClockWidget from '../widgets/Clock/ClockWidget.jsx';
 import Taskbar from "./Taskbar.jsx";
 
 export default function Desktop() {
@@ -75,6 +76,7 @@ export default function Desktop() {
                 weekday: 'short',
                 day: 'numeric',
                 month: 'short',
+                year:'numeric'
             }));
 
         }, 1000);
@@ -91,7 +93,9 @@ export default function Desktop() {
 
             <DesktopIcons icons={apps} />
 
-            <div className='border border-white absolute right-5 top-15 w-1/4 h-[calc(100%-9rem)]'></div>
+            <div className=' absolute right-5 top-15 w-1/4 h-[calc(100%-9rem)]'>
+            <ClockWidget time={obj}/>
+            </div>
 
             <Taskbar icons={apps} />
         </div>

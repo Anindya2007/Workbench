@@ -13,6 +13,7 @@
     "@tailwindcss/vite": "^4.3.3",
     "lucide-react": "^1.25.0",
     "react": "^19.2.7",
+    "react-clock": "^6.0.0",
     "react-dom": "^19.2.7",
     "tailwindcss": "^4.3.3"
   },
