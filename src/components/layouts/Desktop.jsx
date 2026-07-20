@@ -91,6 +91,8 @@ export default function Desktop() {
 
             <DesktopIcons icons={apps} />
 
+            <div className='border border-white absolute right-5 top-15 w-1/4 h-[calc(100%-9rem)]'></div>
+
             <Taskbar icons={apps} />
         </div>
     )
