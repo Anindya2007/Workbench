@@ -1,8 +1,10 @@
+import { useState, useEffect } from 'react';
 import WidgetLayout from "../../ui/widgetLayout";
 
+export default function Github() {
+    const [activity, setActivity] = useState([]);
 
-export default function Github(){
-    return(<WidgetLayout>
+    return (<WidgetLayout>
         <p className="text-white">Github Widget</p>
     </WidgetLayout>)
 }
