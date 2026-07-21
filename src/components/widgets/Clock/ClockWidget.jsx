@@ -1,4 +1,4 @@
-import {useState , useEffect} from 'react';
+import WidgetLayout from '../../ui/widgetLayout';
 import Clock from 'react-clock';
 import 'react-clock/dist/Clock.css';
 import '../../../styles/ClockWidget.css';
@@ -19,9 +19,7 @@ export default function ClockWidget({time}){
 
 
 
-    return(<div className='border border-white/20 rounded-2xl px-5 py-3 bg-[#080C25] 
-    shadow-[0_2px_10px_rgba(0,0,0,0.5)] grid grid-cols-2 transition-all duration-200 ease-out cursor-default
- hover:border-white/25 hover:-translate-y-0.5 hover:shadow-[0_0_10px_rgba(165,180,252,0.5)] '>
+        return(<WidgetLayout style='grid grid-cols-2'>
 
         <Clock value={time} renderHourMarks={true} renderMinuteHand={true} renderSecondHand={true} secondHandLength={80}
         hourHandWidth={3} secondHandWidth={0.75} size={120}
@@ -38,5 +36,6 @@ export default function ClockWidget({time}){
             <p className='text-indigo-100 text-xl cursor-default'>{Date.splice(1,Date.length).join(' ')}</p>
         </div>
 
-    </div>)
+    </WidgetLayout>
+    );
 }

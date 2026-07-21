@@ -9,6 +9,7 @@ import Wallpaper from "./Wallpaper.jsx";
 import TopBar from "./TopBar.jsx";
 import DesktopIcons from "../window/DesktopIcons.jsx";
 import ClockWidget from '../widgets/Clock/ClockWidget.jsx';
+import GithubWidget from '../widgets/Github/Github.jsx';
 import Taskbar from "./Taskbar.jsx";
 
 export default function Desktop() {
@@ -93,8 +94,9 @@ export default function Desktop() {
 
             <DesktopIcons icons={apps} />
 
-            <div className=' absolute right-5 top-17 w-1/4 h-[calc(100%-9rem)]'>
+            <div className=' absolute right-5 top-15 w-1/4 flex flex-col gap-5 h-[calc(100%-9rem)] z-10'>
             <ClockWidget time={obj}/>
+            <GithubWidget/>
             </div>
 
             <Taskbar icons={apps} />
