@@ -1,6 +1,13 @@
+const cors=require('cors');
 const express=require('express');
 const app=express();
-const port=3000;
+require('dotenv').config();
+
+const port=process.env.PORT;
+
+app.use(cors({
+    origin: `${process.env.Frontend_URL}`
+}));
 
 app.get('/github/activity',(req,res)=>{
     async function fetchGithubActivity() {
@@ -13,7 +20,7 @@ app.get('/github/activity',(req,res)=>{
             return new Date(day.date)<=today;
         });
 
-        res.json(activity.slice(0,22));
+        res.json(activity.slice(0,60));
     };
 
     fetchGithubActivity().catch(error => {
