@@ -12,7 +12,15 @@ import Taskbar from "./Taskbar.jsx";
 
 import {apps} from '../../config/app.js';
 
+
 export default function Desktop() {
+
+    function OpenApp(id){
+        setWindow(prev=>
+        prev.map((data)=>{
+           return data.id==id? {...apps,isOpen:!data.isOpen}:data
+    }));
+    };
 
     const [window,setWindow] = useState(
         apps.map((data)=>{
@@ -65,7 +73,7 @@ export default function Desktop() {
             <Wallpaper />
             <TopBar Date={date} Time={time} />
 
-            <DesktopIcons icons={apps} />
+            <DesktopIcons icons={apps} operation={OpenApp}/>
             <Home/>
 
             <div className=' absolute right-5 top-15 w-1/4 flex flex-col gap-5 h-[calc(100%-9rem)] z-10'>
@@ -74,7 +82,7 @@ export default function Desktop() {
             <Availability/>
             </div>
 
-            <Taskbar icons={apps} />
+            <Taskbar icons={window} />
         </div>
     )
 }
