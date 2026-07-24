@@ -28,7 +28,7 @@ export default function ClockWidget({time}){
         <div className='flex flex-col items-start justify-center gap-1'>
             <p className=' text-xl font-medium text-indigo-300 cursor-default'>
 
-                <span className='text-4xl font-medium mr-1 text-white' cursor-default>{Time}</span>
+                <span className='text-4xl font-medium mr-1 text-white cursor-default'>{Time}</span>
 
                  {period.toUpperCase()}</p>
             

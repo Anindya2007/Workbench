@@ -29,6 +29,27 @@ app.get('/github/activity',(req,res)=>{
     });
 });
 
+app.get('/github/repo-data',(req,res)=>{
+    async function RepoData(){
+        const repo=await fetch('https://api.github.com/users/Anindya2007');
+        const contributions=await fetch('https://github-contributions.vercel.app/api/v1/Anindya2007');
+
+        const repo_data=await repo.json();
+        const contributions_data=await contributions.json();
+
+        const date=String(new Date().getFullYear());
+
+        const contri=contributions_data.years.find((data)=>data.year===date).total;
+        const repositories=repo_data.public_repos;
+
+        res.json({contributions:contri,repositories:repositories});
+    };
+    RepoData().catch(err=>{
+        console.log(err);
+        res.status(500).json({error:'Failed to fetch GitHub data.'})
+    });
+});
+
 app.listen(port,()=>{
     console.log(`Server is running on http://localhost:${port}`);
 });

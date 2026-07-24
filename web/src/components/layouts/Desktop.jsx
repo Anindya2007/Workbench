@@ -1,53 +1,32 @@
 import { useState, useEffect } from "react";
-import Resume from '../../assets/Resume.png'
-import About from '../../assets/About.png'
-import Contact from '../../assets/Contact.png'
-import Projects from '../../assets/Projects.png';
-import Gallery from '../../assets/Gallery.png';
+
 import Wallpaper from "./Wallpaper.jsx";
 
 import TopBar from "./TopBar.jsx";
 import DesktopIcons from "../window/DesktopIcons.jsx";
+import Home from "../../app/Home/Home.jsx";
 import ClockWidget from '../widgets/Clock/ClockWidget.jsx';
 import GithubWidget from '../widgets/Github/Github.jsx';
 import Availability from '../widgets/Availability/Availability.jsx';
-import QuoteWidget from '../widgets/Quote/Quote.jsx';
 import Taskbar from "./Taskbar.jsx";
+
+import {apps} from '../../config/app.js';
+
 
 export default function Desktop() {
 
-    const apps = [{
-        'id': 1,
-        'name': 'About Me',
-        'image': About,
-        'active': false
-    },
-    {
-        'id': 2,
-        'name': 'Projects',
-        'image': Projects,
-        'active': false
+    function OpenApp(id){
+        setWindow(prev=>
+        prev.map((data)=>{
+           return data.id==id? {...apps,isOpen:!data.isOpen}:data
+    }));
+    };
 
-    },
-    {
-        'id': 3,
-        'name': 'Resume',
-        'image': Resume,
-        'active': false
-    },
-    {
-        'id': 4,
-        'name': 'Contact',
-        'image': Contact,
-        'active': false
-    },
-    {
-        'id': 5,
-        'name': 'Gallery',
-        'image': Gallery,
-        'active': false
-    }
-    ];
+    const [window,setWindow] = useState(
+        apps.map((data)=>{
+            return({...data,isOpen:false,isMinimised:false})
+        })
+    );
 
     const [obj, SetObj] = useState(new Date());
     const [time, SetTime] = useState(obj.toLocaleTimeString([],
@@ -94,16 +73,16 @@ export default function Desktop() {
             <Wallpaper />
             <TopBar Date={date} Time={time} />
 
-            <DesktopIcons icons={apps} />
+            <DesktopIcons icons={apps} operation={OpenApp}/>
+            <Home/>
 
             <div className=' absolute right-5 top-15 w-1/4 flex flex-col gap-5 h-[calc(100%-9rem)] z-10'>
             <ClockWidget time={obj}/>
             <GithubWidget/>
             <Availability/>
-            <QuoteWidget/>
             </div>
 
-            <Taskbar icons={apps} />
+            <Taskbar icons={window} />
         </div>
     )
 }

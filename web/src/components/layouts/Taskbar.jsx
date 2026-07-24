@@ -15,7 +15,7 @@ export default function Taskbar({ icons }) {
                 
                 {icons.map((app) => {
 
-                    return (<App app={app} />)
+                    return (<App app={app} key={app.id}/>)
 
                 })}
 
