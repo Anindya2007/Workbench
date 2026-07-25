@@ -1,4 +1,4 @@
-import Home from '../../assets/Home.png';
+import Home from '../../assets/apps/Home.png';
 import App from '../ui/TaskbarApp.jsx';
 
 export default function Taskbar({ icons }) {
