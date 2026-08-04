@@ -4,14 +4,13 @@ import Wallpaper from "./Wallpaper.jsx";
 
 import TopBar from "./TopBar.jsx";
 import DesktopIcons from "../window/DesktopIcons.jsx";
-import Home from "../../app/Home/Home.jsx";
 import ClockWidget from '../widgets/Clock/ClockWidget.jsx';
 import GithubWidget from '../widgets/Github/Github.jsx';
 import Availability from '../widgets/Availability/Availability.jsx';
 import Taskbar from "./Taskbar.jsx";
 
 import {apps} from '../../config/app.js';
-import Contact from "../../app/Contact/Contact.jsx";
+import About from '../../app/About/About.jsx'
 
 export default function Desktop() {
 
@@ -74,8 +73,7 @@ export default function Desktop() {
             <TopBar Date={date} Time={time} />
 
             <DesktopIcons icons={apps} operation={OpenApp}/>
-            <Home/>
-            <Contact/>
+            <About/>
 
             <div className=' absolute right-5 top-15 w-1/4 flex flex-col gap-5 h-[calc(100%-9rem)] z-10'>
             <ClockWidget time={obj}/>

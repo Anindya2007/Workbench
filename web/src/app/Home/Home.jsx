@@ -1,5 +1,3 @@
-
-
 import AppWindow from '../../components/window/AppWindow.jsx';
 import CodeSnippet from '../../assets/CodeSnippet.png'
 import Stats from './Stats.jsx'
