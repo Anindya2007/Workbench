@@ -21,7 +21,7 @@ export default function TechStack() {
         { name: "GitHub", txtcolor:'gray', icon: SiGithub },
     ];
     return (
-        <div className=' bg-[#091441] h-fit w-fit border border-white/20 px-5 py-2 absolute left-100 bottom-4 rounded-xl  grid grid-cols-4 gap-2 items-center justify-center'>
+        <div className=' bg-[#061240] h-fit w-fit border border-white/20 px-5 py-2 absolute left-100 bottom-4 rounded-xl  grid grid-cols-4 gap-2 items-center justify-center'>
             {techStack.map(({name,txtcolor, icon: Icon})=>(
                 <div key={name} className='flex flex-col items-center justify-center p-2 w-fit h-fit pr-3'>
                     <Icon className='text-4xl' style={{color:`${txtcolor}`}} />
