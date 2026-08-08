@@ -10,7 +10,9 @@ import Availability from '../widgets/Availability/Availability.jsx';
 import Taskbar from "./Taskbar.jsx";
 
 import {apps} from '../../config/app.js';
-import About from '../../app/About/About.jsx'
+import About from '../../app/About/About.jsx';
+import ProjectApp from '../../app/Projects/Projects.jsx';
+
 
 export default function Desktop() {
 
@@ -73,7 +75,8 @@ export default function Desktop() {
             <TopBar Date={date} Time={time} />
 
             <DesktopIcons icons={apps} operation={OpenApp}/>
-            <About/>
+            {/* <About/> */}
+            <ProjectApp/>
 
             <div className=' absolute right-5 top-15 w-1/4 flex flex-col gap-5 h-[calc(100%-9rem)] z-10'>
             <ClockWidget time={obj}/>
