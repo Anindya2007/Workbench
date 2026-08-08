@@ -1,7 +1,20 @@
 import AppWindowHeader from '../../components/window/AppWindowHeader.jsx';
 import ProjectIntro from './ProjectAppIntro.jsx';
+import ProjectBox from './ProjectBox.jsx';
 
 export default function Projects() {
+
+    const projects=[
+        {
+            Sno:1,
+            name:'Workbench',
+            desc:'A browser based portfolio OS having each part as a working app.',
+            tech:'Frontend',
+            gitlink:'https://github.com/Anindya2007/Workbench',
+            livelink:'anindya-dev-space.vercel.app/' 
+        }
+    ];
+
     return (
         <div className='w-[70%] h-[82%] absolute left-[15%] top-[8%] border-2 border-indigo-200/70 z-30 rounded-2xl overflow-hidden'>
             <AppWindowHeader name='Projects' />
@@ -11,6 +24,11 @@ export default function Projects() {
 
                     <ProjectIntro />
 
+                    <div className='w-full hmin-h-screen grid grid-cols-3 gap-2 items-center absolute top-72'>
+                        {projects.map((project,index) => {
+                            return <ProjectBox key={index} Sno={project.Sno} Name={project.name} Desc={project.desc} Tech={project.tech} GitLink={project.gitlink} LiveLink={project.livelink}/>
+                        })}
+                    </div>
             </div>
 
 
