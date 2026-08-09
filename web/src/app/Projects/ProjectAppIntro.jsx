@@ -1,7 +1,7 @@
 import ProjectStat from './ProjectStat.jsx'
 
 export default function ProjectIntro(){
-    return(<div className='w-[95%] h-[250px] mx-auto absolute top-18 flex justify-between'>
+    return(<div className='w-[95%] h-[230px] mx-auto mt-4 flex justify-between'>
 
         <div>
 
