@@ -1,10 +1,14 @@
 import AppWindowHeader from '../../components/window/AppWindowHeader.jsx';
 import ProjectIntro from './ProjectAppIntro.jsx';
 import ProjectBox from './ProjectCard.jsx';
+import AddProject from './AddProject.jsx';
 
 import {useState} from 'react';
 
 export default function Projects() {
+
+    const [Add,setAdd]= useState(true);
+    const [Delete,setDelete]= useState(false);
 
     const [projects,setProject] = useState([
         {
@@ -65,14 +69,6 @@ export default function Projects() {
         }
     ]);
 
-    function AddProject(data){
-        setProject([data,...projects]);
-    };
-
-    function DeleteProject(data){
-        setProject(projects.filter((i)=>{i!=data}));
-    };
-
 
     return (
         <div className='w-[85%] h-[84%] absolute left-[10%] top-[6.7%] border-2 border-indigo-200/70 z-30 rounded-2xl overflow-hidden'>
@@ -84,8 +80,8 @@ export default function Projects() {
                 <ProjectIntro />
 
 
-                <button className='border border-white/30 bg-indigo-900/40 px-2 py-1 mr-2 mb-3 text-md text-white rounded-2xl ease-in-out duration-100 hover:shadow-[1px_1px_5px_rgba(255,255,255,0.6)]' onClick={()=>AddProject()}>+ Add Project</button>
-                <button className='border border-white/30 bg-indigo-900/40 px-2 py-1 ml-2 mb-3 text-md text-white rounded-2xl ease-in-out duration-100 hover:shadow-[1px_1px_5px_rgba(255,255,255,0.6)]' onClick={()=>DeleteProject()}>- Delete Project</button>
+                <button className='border border-white/30 bg-indigo-900/40 px-2 py-1 mr-2 mb-3 text-md text-white rounded-2xl ease-in-out duration-100 hover:shadow-[1px_1px_5px_rgba(255,255,255,0.6)]' onClick={()=>setAdd(true)}>+ Add Project</button>
+                <button className='border border-white/30 bg-indigo-900/40 px-2 py-1 ml-2 mb-3 text-md text-white rounded-2xl ease-in-out duration-100 hover:shadow-[1px_1px_5px_rgba(255,255,255,0.6)]' onClick={()=>setDelete(true)}>- Delete Project</button>
 
 
                 <div className='w-full  grid grid-cols-3 gap-1 items-center mt-2'>
@@ -95,6 +91,7 @@ export default function Projects() {
                 </div>
             </div>
 
+            {/* {Add && <AddProject/>} */}
 
         </div>
 

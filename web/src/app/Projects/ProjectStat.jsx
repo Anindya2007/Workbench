@@ -21,11 +21,12 @@ export default function ProjectStat(){
         }
     ]
 
-    return(<div className='border border-indigo-200 rounded-2xl grid grid-cols-3 w-[50%] h-fit'>
+    return(<div className='border border-indigo-200 rounded-2xl grid grid-cols-3 w-[50%] h-fit mt-3'>
         {Data.map((item,index)=>{
             return(
                 <StatData key={index} Data={item.data} icon={item.icon} name={item.name}/>
             )
         })}
+        
     </div>)
 }
