@@ -12,7 +12,7 @@ import Taskbar from "./Taskbar.jsx";
 import {apps} from '../../config/app.js';
 import About from '../../app/About/About.jsx';
 import ProjectApp from '../../app/Projects/Projects.jsx';
-
+import ResumeApp from '../../app/Resume/ResumeBox.jsx';
 
 export default function Desktop() {
 
@@ -76,7 +76,8 @@ export default function Desktop() {
 
             <DesktopIcons icons={apps} operation={OpenApp}/>
             {/* <About/> */}
-            <ProjectApp/>
+            {/* <ProjectApp/> */}
+            <ResumeApp/>
 
             <div className=' absolute right-5 top-15 w-1/4 flex flex-col gap-5 h-[calc(100%-9rem)] z-10'>
             <ClockWidget time={obj}/>

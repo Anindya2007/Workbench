@@ -9,6 +9,8 @@ app.use(cors({
     origin: `${process.env.Frontend_URL}`
 }));
 
+// This below function is to fetch the github activity from the URL.
+
 app.get('/github/activity',(req,res)=>{
     async function fetchGithubActivity() {
         const response = await fetch('https://github-contributions.vercel.app/api/v1/Anindya2007');
@@ -29,6 +31,7 @@ app.get('/github/activity',(req,res)=>{
     });
 });
 
+//The below route and function is to fetch the github Repo data
 app.get('/github/repo-data',(req,res)=>{
     async function RepoData(){
         const repo=await fetch('https://api.github.com/users/Anindya2007');
